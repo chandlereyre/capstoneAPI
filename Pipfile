@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+pymongo = "*"
+flask-login = "*"
+flask-session = "*"
+redis = "*"
+werkzeug = "==2.3.7"
+flask-cors = "*"
+flask-socketio = "*"
+pillow = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
