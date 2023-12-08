@@ -12,14 +12,13 @@ from flask_socketio import SocketIO, join_room, leave_room, send
 app = Flask(__name__)
 CORS(app, origins="*", supports_credentials=True)
 app.config['IMG_FOLDER'] = 'img'
-app.config['SECRET_KEY'] = "secret key"
+app.config['SECRET_KEY'] = open("secret_key.txt").read()
 app.config['SESSION_TYPE'] = 'redis'
 app.config['SESSION_PERMANENT'] = True
 app.config['SESSION_USE_SIGNER'] = True
 app.config['SESSION_REDIS'] = redis.from_url('redis://localhost:6379')
 app.config['SESSION_COOKIE_SAMESITE'] = "None"
 app.config['SESSION_COOKIE_SECURE'] = True
-app.config['SESSION_COOKIE_NAME'] = "clumpusapi.duckdns.org"
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
