@@ -118,11 +118,11 @@ def getChats():
 
                 else:
                     otherUser = roomOBJ['users'][0]
-                profilePic = "http://3.15.224.228" + db.user.find_one({'username': otherUser})['profilePic']
+                profilePic = "https://clumpusapi.duckdns.org" + db.user.find_one({'username': otherUser})['profilePic']
                 data[room] = {'lastMessage': lastMessage, 'profilePic': profilePic, 'with': [otherUser], 'group': False}
             
             if len(roomOBJ['users']) > 2:
-                profilePic = "http://3.15.224.228" + "/img/defaultProfilePic.png" # do something better here later
+                profilePic = "https://clumpusapi.duckdns.org" + "/img/defaultProfilePic.png" # do something better here later
                 otherUsers = roomOBJ['users']
                 otherUsers.remove(username)
                 data[room] = {'lastMessage': lastMessage, 'profilePic': profilePic, 'with': otherUsers, 'group': True}
@@ -182,10 +182,10 @@ def getProfilePic():
         profilePic = db.user.find_one({'username': request.json['username']})['profilePic']
 
         if profilePic != "":
-            return "http://3.15.224.228" + profilePic
+            return "https://clumpusapi.duckdns.org/" + profilePic
         
         else:
-            return "http://3.15.224.228" + "/img/defaultProfilePic.png"
+            return "https://clumpusapi.duckdns.org/img/defaultProfilePic.png"
         
     else:
         return "user not found"
