@@ -18,12 +18,10 @@ app.config['SESSION_PERMANENT'] = True
 app.config['SESSION_USE_SIGNER'] = True
 app.config['SESSION_REDIS'] = redis.from_url('redis://localhost:6379')
 app.config['SESSION_COOKIE_SAMESITE'] = "None"
-app.config['SESSION_COOKIE_SECURE'] = False
-app.config['SESSION_COOKIE_NAME'] = "3.15.224.228"
-<<<<<<< HEAD
-=======
+app.config['SESSION_COOKIE_SECURE'] = True
+app.config['SESSION_COOKIE_NAME'] = "clumpusapi.duckdns.org"
 app.config['CORS_HEADERS'] = 'Content-Type'
->>>>>>> origin/main
+
 
 # mongo init
 db = MongoClient("localhost", 27017).chatApp
@@ -289,4 +287,4 @@ def computeRoom(users):
     return room
 
 if __name__ == '__main__':  
-    socketio.run(app)
+    socketio.run(app, allow_unsafe_werkzeug=True)
