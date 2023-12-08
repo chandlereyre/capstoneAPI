@@ -20,6 +20,10 @@ app.config['SESSION_REDIS'] = redis.from_url('redis://localhost:6379')
 app.config['SESSION_COOKIE_SAMESITE'] = "None"
 app.config['SESSION_COOKIE_SECURE'] = False
 app.config['SESSION_COOKIE_NAME'] = "3.15.224.228"
+<<<<<<< HEAD
+=======
+app.config['CORS_HEADERS'] = 'Content-Type'
+>>>>>>> origin/main
 
 # mongo init
 db = MongoClient("localhost", 27017).chatApp
@@ -226,6 +230,7 @@ def updateProfile():
     
         if db.user.find_one({'username': user}):
             db.user.update_one({'username': user}, {'$set': {'bio': bio, 'profilePic': f'/img/{user}.{file_type}'}})
+            
             return "user updated"
         
     if db.user.find_one({'username': user}):
