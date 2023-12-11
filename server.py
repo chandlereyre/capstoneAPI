@@ -145,6 +145,9 @@ def createChat():
             db.user.update_one({'username': user}, {"$set": {"chats": chats}})
 
     db.chats.insert_one({'room': room, 'messages': [], 'users': recipientsArr, 'profilePic': ""})
+    
+    for recipient in recipientsArr:
+        socketio.emit("newMessage", room=recipient)
     return "Chat created"
     
 @app.route("/get-messages", methods = ['POST'])
